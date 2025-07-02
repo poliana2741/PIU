@@ -1,0 +1,149 @@
+.kanban-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.task-form {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.empty-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid;
+}
+
+.task-item.realizada {
+    border-left-color: #4CAF50;
+}
+
+.task-item.pendente {
+    border-left-color: #FFC107;
+}
+
+.task-item.nao-realizada {
+    border-left-color: #F44336;
+}
+
+.task-text {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.task-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.status-controls, .move-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.status-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-btn.realizada {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-btn.realizada.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-btn.pendente {
+    background-color: #fff8e1;
+    color: #ff8f00;
+}
+
+.status-btn.pendente.active {
+    background-color: #FFC107;
+    color: white;
+}
+
+.status-btn.nao-realizada {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.status-btn.nao-realizada.active {
+    background-color: #F44336;
+    color: white;
+}
+
+.move-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.move-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.move-btn:hover:not(:disabled) {
+    background-color: #bdbdbd;
+}
