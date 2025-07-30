@@ -6,7 +6,8 @@ import ThemeToggle from './componentes/ThemeToggle'
 import ColorInput from './componentes/ColorInput'
 import LoginForm from './componentes/LoginForm'
 import ListaUsuarios from './componentes/ListaUsuarios'
-import Gerenciador from './componentes/Gerenciador'
+import GerenciadorTarefas from './componentes/GerenciadorTarefas'
+import AlbumListByUserId from './componentes/AlbumListByUserId'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,8 @@ function App() {
       {/* <ColorInput />a */}
       <LoginForm />
       <ListaUsuarios />
-      <Gerenciador />
+      <GerenciadorTarefas />
+      <AlbumListByUserId />
 
 
     </>

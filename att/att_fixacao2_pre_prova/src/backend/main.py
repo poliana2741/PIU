@@ -2,10 +2,11 @@ from fastapi import FastAPI, HTTPException
 from typing import List
 from models import Tarefa
 
+from fastapi.middleware.cors import CORSMiddleware  # usado para integração com React
+
 app = FastAPI()
 
-from fastapi.middleware.cors import CORSMiddleware #usado pra poder usar em uma att de react
-
+# Middleware CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Permite todas as origens
@@ -17,10 +18,12 @@ app.add_middleware(
 # Simulação de banco de dados em memória
 banco_tarefas: List[Tarefa] = []
 
+# Listar tarefas
 @app.get("/tarefas/", response_model=List[Tarefa])
 def listar_tarefas():
     return banco_tarefas
 
+# Criar tarefa
 @app.post("/tarefas/", response_model=Tarefa)
 def criar_tarefa(tarefa: Tarefa):
     for t in banco_tarefas:
@@ -29,6 +32,7 @@ def criar_tarefa(tarefa: Tarefa):
     banco_tarefas.append(tarefa)
     return tarefa
 
+# Atualizar tarefa
 @app.put("/tarefas/{tarefa_id}", response_model=Tarefa)
 def atualizar_tarefa(tarefa_id: int, nova_tarefa: Tarefa):
     for index, tarefa in enumerate(banco_tarefas):
@@ -37,6 +41,7 @@ def atualizar_tarefa(tarefa_id: int, nova_tarefa: Tarefa):
             return nova_tarefa
     raise HTTPException(status_code=404, detail="Tarefa não encontrada")
 
+# Deletar tarefa
 @app.delete("/tarefas/{tarefa_id}")
 def deletar_tarefa(tarefa_id: int):
     for tarefa in banco_tarefas:
