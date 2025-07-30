@@ -4,6 +4,16 @@ from models import Tarefa
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware #usado pra poder usar em uma att de react
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas as origens
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos os métodos
+    allow_headers=["*"],  # Permite todos os headers
+)
+
 # Simulação de banco de dados em memória
 banco_tarefas: List[Tarefa] = []
 
